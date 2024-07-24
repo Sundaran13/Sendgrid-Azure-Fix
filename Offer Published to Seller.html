@@ -219,13 +219,8 @@
         font-size: 16px;
         line-height: 22px;
         color: #21233A;">
-                            Your private offer has been successfully published on the {{offer_details_cloud_marketplace}} Marketplace for {{account_details_account_name}} 
-                            {{#if (eq offer_details_cloud_marketplace "AWS")}}
-                                {{account_details_Buyer_account_id}}
-                            {{else}}
-                                {{offer_details_azure_customer_id}}
-                            {{/if}}.
-                            Please find the details of the private offer below:</p>
+                                    Your private offer has been successfully published on the {{offer_details_cloud_marketplace}} Marketplace{{#if account_details_account_name}}{{#if account_details_Buyer_account_id}} for {{account_details_account_name}} {{account_details_Buyer_account_id}}{{/if}}{{/if}}. Please find the details of the private offer below:
+</p>
                             </td>
                         </tr>
 
@@ -301,11 +296,7 @@ padding: 8px 12px;
 font-size: 14px;
 line-height: 19px;
 word-wrap: break-word;">
-                                        {{#if (eq offer_details_cloud_marketplace "AWS")}}
-                                                {{account_details_Buyer_account_id}}
-                                            {{else}}
-                                                {{offer_details_azure_customer_id}}
-                                            {{/if}}
+                                                         {{account_details_Buyer_account_id}}
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -379,10 +370,11 @@ line-height: 19px;
 word-wrap: break-word;"
                                                         valign="top">
                                         {{#if (eq offer_details_cloud_marketplace "AWS")}}
-                                                {{offer_details_offer_link}}
-                                            {{else}}
-                                                {{offer_details_azure_offer_link}}
-                                            {{/if}}
+                                                        {{offer_details_offer_link}}
+                                                    {{/if}}
+                                        {{#if (eq offer_details_cloud_marketplace "AZURE")}}
+                                                    {{offer_details_azure_offer_link}}
+                                                    {{/if}}
                                                     </td>
                                                 </tr>
                                                 <tr>
