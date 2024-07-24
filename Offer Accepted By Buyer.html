@@ -219,14 +219,9 @@
         font-size: 16px;
         line-height: 22px;
         color: #21233A;">
-                                    Your Private Offer for {{account_details_account_name}}
-                                    {{#if (eq offer_details_cloud_marketplace "AWS")}}
-                                        {{account_details_Buyer_account_id}}
-                                    {{else}}
-                                        {{offer_details_azure_customer_id}}
-                                    {{/if}}
-                                    on {{offer_details_cloud_marketplace}} Marketplace has been accepted! Please find the details of the private offer below.
-                                </p>
+                   Your Private Offer {{#if account_details_account_name}}{{#if account_details_Buyer_account_id}}for {{account_details_account_name}} {{account_details_Buyer_account_id}}{{/if}}{{/if}} on {{offer_details_cloud_marketplace}} Marketplace has been accepted! Please find the details of the private offer below.
+
+                </p>
                             </td>
                         </tr>
 
@@ -282,6 +277,7 @@ word-wrap: break-word;"
                                                         {{created_by_person_name}} from {{updated_by_company_name}} with Account ID: {{offer_details_seller_id}}
                                                     </td>
                                                 </tr>
+                                                {{#if account_details_Buyer_account_id}}
                                                 <tr>
                                                     <td class="label"
                                                         style="font-weight: 400;
@@ -304,13 +300,10 @@ font-size: 14px;
 line-height: 19px;
 word-wrap: break-word;"
                                                         valign="top">
-                                                         {{#if (eq offer_details_cloud_marketplace "AWS")}}
-                                                {{account_details_Buyer_account_id}}
-                                            {{else}}
-                                                {{offer_details_azure_customer_id}}
-                                            {{/if}}
+                                                        {{account_details_Buyer_account_id}}
                                                     </td>
                                                 </tr>
+                                                {{/if}}
                                                 
                                                 <tr>
                                                     <td class="label" valign="top"
@@ -361,6 +354,7 @@ word-wrap: break-word;"
                                                         {{name}}
                                                     </td>
                                                 </tr>
+                                                {{#if offer_details_agreement_id}}
                                                 <tr>
                                                     <td class="label"
                                                         style="font-weight: 400;
@@ -386,6 +380,9 @@ word-wrap: break-word;"
                                                         {{offer_details_agreement_id}}
                                                     </td>
                                                 </tr>
+                                                {{/if}}
+                                                
+                                                {{#if offer_details_accepted_date}}
                                                 <tr>
                                                     <td class="label"
                                                         style="font-weight: 400;
@@ -411,6 +408,9 @@ word-wrap: break-word;"
                                                         {{offer_details_accepted_date}}
                                                     </td>
                                                 </tr>
+                                                {{/if}}
+                                                
+                                    {{#if pricing_details_validity_term_agreement_duration}}
                                                 <tr>
                                                     <td class="label"
                                                         style="font-weight: 400;
@@ -435,7 +435,7 @@ word-wrap: break-word;"
                                                         {{pricing_details_validity_term_agreement_duration}} 
                                                     </td>
                                                 </tr>
-                                                
+                                            {{/if}}
                                             </table>
                                         </td>
                                     </tr>
